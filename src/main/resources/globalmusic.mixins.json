@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fr.hybanos.globalmusic.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "MusicLoopAccessor",
+    "MusicTrackerAccessor",
+    "MusicTrackerMixin",
+    "WeightedSoundSetAccessor",
+    "PositionedSoundInstanceMixin",
+    "WeightedSoundSetMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

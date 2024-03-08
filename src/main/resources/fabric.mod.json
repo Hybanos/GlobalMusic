@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "globalmusic",
+  "version": "${version}",
+  "name": "GlobalMusic",
+  "description": "",
+  "authors": [
+    "Hybanos"
+  ],
+  "contact": {
+    "repo": "https://github.com/gautier/GlobalMusic"
+  },
+  "license": "unlicense",
+  "icon": "assets/globalmusic/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "fr.hybanos.globalmusic.GlobalMusicClient"
+    ]
+  },
+  "mixins": [
+    "globalmusic.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
