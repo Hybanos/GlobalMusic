@@ -15,7 +15,10 @@ public class MusicTrackerMixin {
     @Inject(method="tick", at=@At("HEAD"), cancellable=true)
     private void onTick(CallbackInfo info) {
         MusicTracker thisObject = (MusicTracker) (Object) this;
-        ((MusicTrackerAccessor) thisObject).setTimeUntilNextSong(Integer.MAX_VALUE);
-        info.cancel();
+        if (GlobalMusicClient.getInstance().isEnabled()) {
+            ((MusicTrackerAccessor) thisObject).setTimeUntilNextSong(Integer.MAX_VALUE);
+            GlobalMusicClient.getInstance().tick();
+            info.cancel();
+        }
     }
 }
