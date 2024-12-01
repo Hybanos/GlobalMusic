@@ -1,8 +1,9 @@
 package fr.hybanos.globalmusic;
 
 import fr.hybanos.globalmusic.mixin.MusicTrackerAccessor;
-// import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+//import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 
+import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.*;
 import net.minecraft.sound.MusicSound;
@@ -13,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Calendar;
 import java.util.Date;
 
-public class GlobalMusicClient implements ModInitialize {
+public class GlobalMusicClient implements ClientModInitializer {
 
     private static GlobalMusicClient instance;
     private static final MinecraftClient mc = MinecraftClient.getInstance();
@@ -59,9 +60,11 @@ public class GlobalMusicClient implements ModInitialize {
     }
 
     private boolean shouldPlay() {
-        // info("" + ((mc.getMusicType().getMaxDelay() / 20) - (getTimeStamp() / 1000) % (mc.getMusicType().getMaxDelay() / 20)));
+        //info("" + ((mc.getMusicType().getMaxDelay() / 20) - (getTimeStamp() / 1000) % (mc.getMusicType().getMaxDelay() / 20)));
         // return ((MusicTrackerAccessor) musicTracker).getCurrent() == null;
-        return ((MusicTrackerAccessor) musicTracker).getCurrent() == null && ((getTimeStamp() / 1000) % (mc.getMusicType().getMaxDelay() / 20)) == 0;
+        long delay = mc.getMusicType().getMaxDelay() / 20;
+        delay = Math.max(delay, 1);
+        return ((MusicTrackerAccessor) musicTracker).getCurrent() == null && ((getTimeStamp() / 1000) % (delay)) == 0;
     }
 
     public int timeUntilNextSong() {
