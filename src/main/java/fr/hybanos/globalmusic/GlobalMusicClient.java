@@ -1,8 +1,8 @@
 package fr.hybanos.globalmusic;
 
 import fr.hybanos.globalmusic.mixin.MusicTrackerAccessor;
-import net.fabricmc.api.ClientModInitializer;
 // import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.*;
 import net.minecraft.sound.MusicSound;
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Calendar;
 import java.util.Date;
 
-public class GlobalMusicClient implements ClientModInitializer {
+public class GlobalMusicClient implements ModInitialize {
 
     private static GlobalMusicClient instance;
     private static final MinecraftClient mc = MinecraftClient.getInstance();
