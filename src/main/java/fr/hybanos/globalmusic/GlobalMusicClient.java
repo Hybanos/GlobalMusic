@@ -45,7 +45,7 @@ public class GlobalMusicClient implements ClientModInitializer {
         SoundInstance current = ((MusicTrackerAccessor) musicTracker).getCurrent();
 
         if (current != null) {
-            if (!type.getSound().value().getId().equals(current.getId()) && type.shouldReplaceCurrentMusic()) {
+            if (!type.getSound().value().id().equals(current.getId()) && type.shouldReplaceCurrentMusic()) {
                 musicTracker.stop();
             }
             if (!mc.getSoundManager().isPlaying(current)) {
@@ -90,7 +90,7 @@ public class GlobalMusicClient implements ClientModInitializer {
 
     public static void info(String s) {
         if (mc.player != null) {
-            mc.player.sendMessage(Text.of(s));
+            mc.player.sendMessage(Text.of(s), true);
         }
     }
 }

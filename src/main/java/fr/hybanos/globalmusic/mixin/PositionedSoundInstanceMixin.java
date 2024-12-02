@@ -21,7 +21,7 @@ public class PositionedSoundInstanceMixin {
             long seed = GlobalMusicClient.getInstance().getRandomSeed();
             random.setSeed(seed);
             random.nextInt();
-            cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.MUSIC, 1.0f, 1.0f, random, false, 0, SoundInstance.AttenuationType.NONE, 0.0, 0.0, 0.0, true));
+            cir.setReturnValue(new PositionedSoundInstance(sound.id(), SoundCategory.MUSIC, 1.0f, 1.0f, random, false, 0, SoundInstance.AttenuationType.NONE, 0.0, 0.0, 0.0, true));
         }
     }
 }
